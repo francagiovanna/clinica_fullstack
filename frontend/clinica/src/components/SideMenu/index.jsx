@@ -41,11 +41,11 @@ const SideMenu = () => {
 
     return (
         <aside
-            className={`h-screen bg-cyan-800 text-white flex flex-col justify-between transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'
+            className={`h-screen bg-cyan-800 dark:bg-gray-900 text-white flex flex-col justify-between transition-all duration-300 ${isCollapsed ? 'w-20' : 'w-64'
                 }`}
         >
             {/* topo - botão toggle */}
-            <div className='p-4 flex items-center justify-between border-b border-cyan-700'>
+            <div className='p-4 flex items-center justify-between border-b border-cyan-700 dark:border-gray-700'>
                 {
                     !isCollapsed && (
                         <h1 className='text-lg font-bold'>Clínica +</h1>
@@ -53,7 +53,7 @@ const SideMenu = () => {
                 }
                 <button
                     onClick={toggleMenu}
-                    className='text-white hover:text-cyan-300 focus:outline-none'
+                    className='text-white hover:text-cyan-300 dark:hover:text-cyan-400 focus:outline-none'
                 >
                     {isCollapsed ? <MdMenu size={24} /> : <MdClose size={24} />}
                 </button>
@@ -66,7 +66,7 @@ const SideMenu = () => {
                         <NavLink
                             to="/dashboard"
                             className={({ isActive }) =>
-                                `flex gap-2 hover:text-cyan-300 ${isActive ? "text-cyan-300" : "text-white"
+                                `flex gap-2 hover:text-cyan-300 dark:hover:text-cyan-400 ${isActive ? "text-cyan-300 dark:text-cyan-400" : "text-white"
                                 }`
                             }
                         >
@@ -80,7 +80,7 @@ const SideMenu = () => {
                         <NavLink
                             to="/prontuarios"
                             className={({ isActive }) =>
-                                `flex gap-2 hover:text-cyan-300 ${isActive ? "text-cyan-300" : "text-white"
+                                `flex gap-2 hover:text-cyan-300 dark:hover:text-cyan-400 ${isActive ? "text-cyan-300 dark:text-cyan-400" : "text-white"
                                 }`
                             }
                         >
@@ -94,7 +94,7 @@ const SideMenu = () => {
                         <NavLink
                             to="/pacientes"
                             className={({ isActive }) =>
-                                `flex gap-2 hover:text-cyan-300 ${isActive ? "text-cyan-300" : "text-white"
+                                `flex gap-2 hover:text-cyan-300 dark:hover:text-cyan-400 ${isActive ? "text-cyan-300 dark:text-cyan-400" : "text-white"
                                 }`
                             }
                         >
@@ -107,7 +107,7 @@ const SideMenu = () => {
                         <NavLink
                             to="/consultas"
                             className={({ isActive }) =>
-                                `flex gap-2 hover:text-cyan-300 ${isActive ? "text-cyan-300" : "text-white"
+                                `flex gap-2 hover:text-cyan-300 dark:hover:text-cyan-400 ${isActive ? "text-cyan-300 dark:text-cyan-400" : "text-white"
                                 }`
                             }
                         >
@@ -121,7 +121,7 @@ const SideMenu = () => {
                         <NavLink
                             to="/exames"
                             className={({ isActive }) =>
-                                `flex gap-2 hover:text-cyan-300 ${isActive ? "text-cyan-300" : "text-white"
+                                `flex gap-2 hover:text-cyan-300 dark:hover:text-cyan-400 ${isActive ? "text-cyan-300 dark:text-cyan-400" : "text-white"
                                 }`
                             }
                         >
@@ -134,7 +134,7 @@ const SideMenu = () => {
             </nav>
 
             {/* botao sair */}
-            <div className='p-4 border-t border-cyan-700'>
+            <div className='p-4 border-t border-cyan-700 dark:border-gray-700'>
                 <button
                     onClick={handleLogout}
                     className='flex items-center gap-3 text-red-300 hover:text-red-500 w-full cursor-pointer'

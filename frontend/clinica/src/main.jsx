@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import { AuthProvider } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import PrivateRoute from './components/PrivateRoute';
 import DashboardLayout from './layouts/DashboardLayout';
 import MedicalRecordList from './components/MedicalRecordList';
@@ -42,9 +43,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-      <ToastContainer />
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <ToastContainer />
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
   </StrictMode>,
 )
