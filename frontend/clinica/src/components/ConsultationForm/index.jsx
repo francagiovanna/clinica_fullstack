@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import apiClient from '../../api/api'
 import { toast } from 'react-toastify'
 
 //modal
@@ -30,7 +30,7 @@ function ConsultationForm() {
     useEffect(() => {
         const fetchPatients = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/patients")
+                const response = await apiClient.get("/patients")
                 setPatients(response.data)
             } catch (error) {
                 console.error("Erro ao obter dados dos pacientes", error)
@@ -102,7 +102,7 @@ function ConsultationForm() {
                 ...formData
             }
 
-            await axios.post("http://localhost:3000/consults", dataToSave)
+            await apiClient.post("/consults", dataToSave)
 
             toast.success("Consulta cadastrada com sucesso!", {
                 autoClose: 2000,
@@ -118,6 +118,8 @@ function ConsultationForm() {
                 autoClose: 2000,
                 hideProgressBar: true
             })
+        } finally {
+            setIsSaving(false)
         }
     }
 

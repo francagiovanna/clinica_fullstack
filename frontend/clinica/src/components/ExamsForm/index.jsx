@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import apiClient from "../../api/api";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -28,7 +28,7 @@ const ExamsForm = () => {
 
   const fetchPatients = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/patients");
+      const response = await apiClient.get("/patients");
       setPatients(response.data);
       setFilteredPatients(response.data);
     } catch (error) {
@@ -87,7 +87,7 @@ const ExamsForm = () => {
         patientId: selectedPatient.id,
       };
 
-      await axios.post("http://localhost:3000/exams", examToAdd);
+      await apiClient.post("/exams", examToAdd);
       toast.success("Exame cadastrado com sucesso!", {
         position: "top-right",
         autoClose: 2000,
